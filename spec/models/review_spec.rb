@@ -1,5 +1,17 @@
 require 'rails_helper'
 
 RSpec.describe Review, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  let(:user) { User.create(
+    email: 'test@example.com',
+    password: 'password',
+    password_confirmation: 'password'
+    )
+  }
+  
+  it 'should validate rating' do
+    review = user.reviews.create(
+      comment: 'this movie was spectacular'
+    )
+    expect(review.errors[:rating]).to include("can't be blank")
+  end
 end
