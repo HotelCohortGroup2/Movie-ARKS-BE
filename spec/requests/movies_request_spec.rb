@@ -101,7 +101,7 @@ RSpec.describe "Movies", type: :request do
             post '/movies', params: movie_params
             movie = Movie.first
     
-              # Send a delete request to destroy the dog
+              # Send a delete request to destroy the movie
               delete "/movies/#{movie.id}"
           
               expect(response).to have_http_status 200
@@ -125,9 +125,6 @@ RSpec.describe "Movies", type: :request do
               expect(response.status).to eq 422
               movie = JSON.parse(response.body)
               expect(movie['title']).to include "can't be blank"
-              # movie = JSON.parse(response.body)
-              # expect(response).to have_http_status(422)
-              # expect(movie['title']).to include"can't be blank"
             end
           end
 

@@ -19,8 +19,7 @@ class ReviewsController < ApplicationController
         if review.valid?
             render json: review
         else
-            render json: review.errors,
-            status: 422
+            render json: review.errors, status: 422
         end
     end
 
@@ -29,9 +28,9 @@ class ReviewsController < ApplicationController
             review.destroy
         render json: review
     end
-
+    
     private
     def review_params
-        params.require(:review).permit(:rating, :comment, :user_id, :movie_id)
+        params.require(:review).permit(:rating, :user_id, :movie_id, :comment)
     end
 end
