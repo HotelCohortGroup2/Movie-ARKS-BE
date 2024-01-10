@@ -48,7 +48,3 @@ user1.each do |each_movie|
   Movie.create each_movie
   puts "create movie #{each_movie}"
 end
-# user2.each do |each_movie|
-#   Movie.create each_movie
-#   puts "create movie #{each_movie}"
-# end

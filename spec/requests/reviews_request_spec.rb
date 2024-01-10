@@ -91,11 +91,10 @@ RSpec.describe "Reviews", type: :request do
             review = Review.first
 
             delete "/reviews/#{review.id}"
-            # deleted_review = Review.find_by(id: review.id)
 
             expect(response).to have_http_status(200)
             expect(Review.find_by(id: review.id)).to be_nil
-            # expect(deleted_review).to be_nil
+
         end
     end
 
