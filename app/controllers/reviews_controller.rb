@@ -13,10 +13,21 @@ class ReviewsController < ApplicationController
         end
     end
 
-    def update 
+    def update
+        review = Review.find(params[:id])
+            review.update(review_params)
+        if review.valid?
+            render json: review
+        else
+            render json: review.errors,
+            status: 422
+        end
     end
 
     def destroy
+        review = Review.find(params[:id])
+            review.destroy
+        render json: review
     end
 
     private
