@@ -81,6 +81,4 @@ test:
 #
 production:
   <<: *default
-  database: movie_app_backend_production
-  username: movie_app_backend
-  password: <%= ENV["MOVIE_APP_BACKEND_DATABASE_PASSWORD"] %>
+  url: <%= ENV['DATABASE_URL'] %>
